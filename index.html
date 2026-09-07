@@ -37,11 +37,26 @@
 
   /* ---------- HERO ---------- */
   header.hero{
+    position:relative;
     background:var(--black);
     color:var(--white);
     padding:64px 0 56px;
   }
   header.hero .wrap{max-width:760px;}
+  .hero-avatar{
+    position:absolute;
+    top:24px;
+    left:24px;
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    object-fit:cover;
+    image-rendering:pixelated;
+    border:2px solid var(--white);
+  }
+  @media(max-width:480px){
+    .hero-avatar{width:48px;height:48px;top:16px;left:16px;}
+  }
   h1.name{
     font-family:var(--mono);
     font-weight:800;
@@ -220,6 +235,7 @@
 <body>
 
 <header class="hero">
+  <img src="pp2.png" alt="Zia Khusnul Fauzi Akhmad" class="hero-avatar">
   <div class="wrap">
     <h1 class="name">Zia Khusnul Fauzi Akhmad</h1>
     <div class="role">Backend Developer</div>

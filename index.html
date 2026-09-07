@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zia Khusnul Fauzi Akhmad — Backend Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0a0a0a;
+    --white:#ffffff;
+    --paper:#f3f3f0;
+    --gray-600:#5c5c58;
+    --gray-400:#9a9a94;
+    --line:#d6d6d0;
+    --line-dark:#3a3a38;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Inter', -apple-system, sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--black);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--black);color:var(--white);}
+  a{color:inherit;}
+  :focus-visible{outline:2px solid var(--black);outline-offset:3px;}
+
+  .wrap{max-width:760px;margin:0 auto;padding:0 28px;}
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    background:var(--black);
+    color:var(--white);
+    padding:64px 0 56px;
+  }
+  header.hero .wrap{max-width:760px;}
+  h1.name{
+    font-family:var(--mono);
+    font-weight:800;
+    font-size:clamp(28px,5.6vw,44px);
+    line-height:1.15;
+    letter-spacing:-0.01em;
+  }
+  .role{
+    font-family:var(--mono);
+    font-size:15px;
+    color:var(--gray-400);
+    margin-top:10px;
+  }
+  .role::before{content:"> ";}
+  .hero-profile{
+    margin-top:26px;
+    max-width:60ch;
+    font-size:15.5px;
+    color:#d8d8d2;
+  }
+  .contact-row{
+    margin-top:34px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 0;
+    font-family:var(--mono);
+    font-size:13px;
+  }
+  .contact-row a{
+    text-decoration:none;
+    padding:6px 14px 6px 0;
+    border-right:1px solid var(--line-dark);
+    margin-right:14px;
+    color:#f0f0ec;
+  }
+  .contact-row a:last-child{border-right:none;}
+  .contact-row a:hover{color:var(--white);text-decoration:underline;text-underline-offset:4px;}
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  h2.title{
+    font-family:var(--mono);
+    font-weight:700;
+    font-size:22px;
+    margin-bottom:6px;
+    letter-spacing:-.01em;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-body{max-width:62ch;font-size:15.5px;color:#2a2a28;}
+
+  /* ---------- EXPERIENCE ---------- */
+  .exp-item{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:4px 24px;
+    padding:22px 0;
+    border-top:1px solid var(--line);
+  }
+  .exp-item:first-of-type{border-top:none;}
+  .exp-date{
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--gray-600);
+    padding-top:2px;
+  }
+  .exp-role{font-weight:600;font-size:15.5px;}
+  .exp-org{font-size:14px;color:var(--gray-600);margin-top:2px;margin-bottom:10px;}
+  .exp-list{list-style:none;font-size:14.5px;color:#333331;}
+  .exp-list li{padding-left:16px;position:relative;margin-bottom:5px;}
+  .exp-list li::before{content:"–";position:absolute;left:0;color:var(--gray-400);}
+
+  @media(max-width:560px){
+    .exp-item{grid-template-columns:1fr;}
+    .exp-date{padding-top:0;margin-bottom:2px;}
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .proj-cat{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--gray-600);
+    border:1px solid var(--line);
+    padding:2px 8px;
+  }
+  .proj{
+    border:1px solid var(--line-dark);
+    border-color:var(--black);
+    padding:22px 24px;
+    margin-bottom:16px;
+    background:var(--white);
+  }
+  .proj-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:6px 14px;
+  }
+  .proj-name{
+    font-family:var(--mono);
+    font-weight:700;
+    font-size:16px;
+  }
+  .proj-link{
+    font-family:var(--mono);
+    font-size:12.5px;
+    text-decoration:none;
+    border-bottom:1px solid var(--black);
+  }
+  .proj-link:hover{color:var(--gray-600);border-color:var(--gray-600);}
+  .proj-desc{font-size:14.5px;color:#2a2a28;margin-top:10px;max-width:58ch;}
+  .proj-stack{
+    margin-top:14px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--gray-600);
+  }
+  .proj-stack span{
+    border:1px solid var(--line);
+    padding:3px 9px;
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+  @media(max-width:640px){.skill-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:420px){.skill-grid{grid-template-columns:1fr;}}
+  .skill-group h3{
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--gray-600);
+    margin-bottom:12px;
+  }
+  .skill-group ul{list-style:none;font-size:14.5px;}
+  .skill-group li{
+    padding:9px 0;
+    border-top:1px solid var(--line);
+  }
+  .skill-group li:first-child{border-top:none;}
+
+  /* ---------- EDUCATION ---------- */
+  .edu-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 20px;}
+  .edu-school{font-weight:600;font-size:16px;}
+  .edu-detail{font-size:14px;color:var(--gray-600);margin-top:4px;}
+  .edu-date{font-family:var(--mono);font-size:12.5px;color:var(--gray-600);white-space:nowrap;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--black);
+    color:var(--gray-400);
+    padding:48px 0 40px;
+  }
+  footer h2.title{color:var(--white);}
+  footer p{font-size:14.5px;max-width:50ch;color:#c8c8c2;margin-bottom:26px;}
+  .foot-links{
+    display:flex;flex-wrap:wrap;gap:6px 0;
+    font-family:var(--mono);font-size:13px;
+  }
+  .foot-links a{
+    text-decoration:none;color:#f0f0ec;
+    padding:6px 14px 6px 0;margin-right:14px;
+    border-right:1px solid var(--line-dark);
+  }
+  .foot-links a:last-child{border-right:none;}
+  .foot-links a:hover{text-decoration:underline;text-underline-offset:4px;}
+  .foot-end{
+    margin-top:32px;font-family:var(--mono);font-size:11.5px;color:var(--gray-600);
+  }
+
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1 class="name">Zia Khusnul Fauzi Akhmad</h1>
+    <div class="role">Backend Developer</div>
+    <div class="contact-row">
+      <a href="mailto:zia14148@gmail.com">zia14148@gmail.com</a>
+      <a href="tel:+628978671224">+62 897-8671-224</a>
+      <a href="https://linkedin.com/in/zia-khusnul" target="_blank" rel="noopener">linkedin.com/in/zia-khusnul</a>
+      <a href="https://github.com/ZiaKfa" target="_blank" rel="noopener">github.com/ZiaKfa</a>
+      <a href="https://minttt.itch.io/" target="_blank" rel="noopener">minttt.itch.io</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <h2 class="title">Profil</h2>
+    <p class="about-body" style="margin-top:16px;">
+      Fresh Graduate Universitas Jenderal Soedirman program studi Informatika yang berfokus
+      pada pemrograman dengan spesialisasi dalam pengembangan backend. Memiliki kemampuan dalam
+      merancang dan pengelolaan basis data, serta pembuatan API yang efisien dan aman. Memiliki
+      minat dalam bidang pengembangan game dan data science. Aktif mengembangkan berbagai
+      proyek sederhana sebagai sarana eksplorasi dan peningkatan keterampilan teknis, serta
+      memiliki kemampuan problem solving yang baik dalam menyelesaikan tantangan logika.
+    </p>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2 class="title" style="margin-bottom:18px;">Pengalaman</h2>
+
+    <div class="exp-item">
+      <div class="exp-date">Jun 2026 — Sekarang</div>
+      <div>
+        <div class="exp-role">Backend Developer</div>
+        <div class="exp-org">Freelance — Kab. Banjarnegara, Jawa Tengah</div>
+        <ul class="exp-list">
+          <li>Backend developer pada proyek aplikasi klinik kesehatan berbasis web dan mobile</li>
+          <li>Merancang, membangun, dan memelihara RESTful API yang efisien, aman, dan skalabel</li>
+          <li>Merancang skema basis data, mengoptimalkan query, dan mengelola penyimpanan data</li>
+          <li>Menerjemahkan kebutuhan fungsional aplikasi menjadi kode backend yang bersih dan terstruktur</li>
+          <li>Melakukan analisis kode, identifikasi bug, dan troubleshooting</li>
+          <li>Berkomunikasi dengan klien dan tim lain dalam menentukan spesifikasi proyek</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Sep 2022 — Jun 2025</div>
+      <div>
+        <div class="exp-role">Asisten Praktikum</div>
+        <div class="exp-org">Fakultas Teknik, Universitas Jenderal Soedirman — Kab. Purbalingga</div>
+        <ul class="exp-list">
+          <li>Menjelaskan materi praktikum kepada mahasiswa</li>
+          <li>Membantu mahasiswa menyelesaikan tugas dan debugging kode</li>
+          <li>Menilai tugas praktikum dan memberikan umpan balik</li>
+          <li>Berkoordinasi dengan dosen pengampu dalam pelaksanaan praktikum</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Jul — Agu 2024</div>
+      <div>
+        <div class="exp-role">Staff Sistem Informasi</div>
+        <div class="exp-org">PT PLN Indonesia Power UBP Mrican — Kab. Banjarnegara</div>
+        <ul class="exp-list">
+          <li>Memelihara dan troubleshooting perangkat serta jaringan kantor, termasuk CCTV, access point, switch, printer, dan monitoring jaringan</li>
+          <li>Terlibat dalam pengembangan aplikasi mobile — perancangan flowchart, implementasi fitur, pengujian, dan pengelolaan source code dengan Git</li>
+          <li>Bertanggung jawab atas pembaruan software dan antivirus pada laptop karyawan</li>
+          <li>Membantu kebutuhan teknis Sistem Informasi dan Helpdesk</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2 class="title" style="margin-bottom:18px;">Proyek</h2>
+
+    <div class="proj">
+      <div class="proj-head">
+        <span class="proj-name">qumon</span>
+        <span class="proj-cat">Backend · Mobile</span>
+        <a class="proj-link" href="https://github.com/ZiaKfa/api-qumon" target="_blank" rel="noopener">github.com/ZiaKfa/api-qumon</a>
+      </div>
+      <p class="proj-desc">
+        Backend API untuk aplikasi Qumon, dibangun dengan Laravel. Konsep aplikasinya seperti
+        TikTok, tapi untuk kuis pengetahuan.
+      </p>
+      <div class="proj-stack">
+        <span>PHP</span><span>Laravel</span><span>REST API</span><span>MySQL</span>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head">
+        <span class="proj-name">health-wellness-api</span>
+        <span class="proj-cat">Backend</span>
+        <a class="proj-link" href="https://github.com/ZiaKfa/health-wellness-api" target="_blank" rel="noopener">github.com/ZiaKfa/health-wellness-api</a>
+      </div>
+      <p class="proj-desc">
+        Backend untuk aplikasi klinik kesehatan — mencakup tracking kesehatan, rekam medis,
+        hingga transaksi pembayaran.
+      </p>
+      <div class="proj-stack">
+        <span>Go</span><span>Echo</span><span>Docker</span><span>Microservices</span>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head">
+        <span class="proj-name">clinic-webapp-api</span>
+        <span class="proj-cat">Backend</span>
+        <a class="proj-link" href="https://github.com/ZiaKfa/clinic-webapp-api" target="_blank" rel="noopener">github.com/ZiaKfa/clinic-webapp-api</a>
+      </div>
+      <p class="proj-desc">
+        Backend untuk platform layanan tes lab klinik — mulai dari pemesanan tes, pembayaran,
+        pengelolaan kit sampel, hingga analisis hasil tes berbasis AI.
+      </p>
+      <div class="proj-stack">
+        <span>Go</span><span>Docker</span><span>Microservices</span>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head">
+        <span class="proj-name">my-queasy-php-quiz</span>
+        <span class="proj-cat">Backend</span>
+        <a class="proj-link" href="https://github.com/ZiaKfa/my-queasy-php-quiz" target="_blank" rel="noopener">github.com/ZiaKfa/my-queasy-php-quiz</a>
+      </div>
+      <p class="proj-desc">
+        Aplikasi kuis interaktif "Queasy", dikembangkan bersama tim sebagai backend developer.
+        Sudah memiliki HAKI sejak 2025.
+      </p>
+      <div class="proj-stack">
+        <span>PHP</span><span>MySQL</span>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head">
+        <span class="proj-name">Pathseekers</span>
+        <span class="proj-cat">Game</span>
+        <a class="proj-link" href="https://minttt.itch.io/pathseekers" target="_blank" rel="noopener">minttt.itch.io/pathseekers</a>
+      </div>
+      <p class="proj-desc">
+        Game riset untuk membandingkan performa algoritma pathfinding A* dan A* dengan
+        Jump Point Search.
+      </p>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head">
+        <span class="proj-name">Math City</span>
+        <span class="proj-cat">Game</span>
+        <a class="proj-link" href="https://minttt.itch.io/math-city" target="_blank" rel="noopener">minttt.itch.io/math-city</a>
+      </div>
+      <p class="proj-desc">
+        Game edukasi untuk melatih kemampuan matematika lewat pendekatan berbasis tantangan.
+      </p>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head">
+        <span class="proj-name">Zedd</span>
+        <span class="proj-cat">Game</span>
+        <a class="proj-link" href="https://minttt.itch.io/zedd" target="_blank" rel="noopener">minttt.itch.io/zedd</a>
+      </div>
+      <p class="proj-desc">
+        Game RPG dungeon crawling single-player untuk tuna netra, dengan sistem pertarungan
+        berbasis giliran dan interaksi audio.
+      </p>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head">
+        <span class="proj-name">ligue1real</span>
+        <span class="proj-cat">Game</span>
+        <a class="proj-link" href="https://github.com/ZiaKfa/ligue1real" target="_blank" rel="noopener">github.com/ZiaKfa/ligue1real</a>
+      </div>
+      <p class="proj-desc">
+        Simulasi pertandingan futsal 5v5 dengan fisika dan AI sederhana, otomatis dirender
+        jadi video vertikal siap unggah ke TikTok/Reels.
+      </p>
+      <div class="proj-stack">
+        <span>Python</span><span>Pygame</span><span>Pymunk</span>
+      </div>
+    </div>
+
+  </div>
+</section><section id="skills">
+  <div class="wrap">
+    <h2 class="title" style="margin-bottom:22px;">Keterampilan</h2>
+    <div class="skill-grid">
+      <div class="skill-group">
+        <h3>TEKNIS</h3>
+        <ul>
+          <li>Algoritma, Struktur Data & OOP</li>
+          <li>REST API — Go (Echo), Laravel (PHP), Express.js</li>
+          <li>MySQL & PostgreSQL</li>
+          <li>Docker</li>
+          <li>Git & GitHub</li>
+          <li>Postman, Bruno, Thunder Client</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>BIDANG KEAHLIAN</h3>
+        <ul>
+          <li>Backend Development</li>
+          <li>Game Development</li>
+          <li>Data Analyst</li>
+          <li>Software Engineering</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>NON-TEKNIS</h3>
+        <ul>
+          <li>Komunikasi & kolaborasi tim</li>
+          <li>Manajemen waktu & penjadwalan</li>
+          <li>Evaluasi & pemberian umpan balik</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <h2 class="title" style="margin-bottom:18px;">Pendidikan</h2>
+    <div class="edu-row">
+      <div>
+        <div class="edu-school">Universitas Jenderal Soedirman</div>
+        <div class="edu-detail">S1 Informatika · IPK 3.88/4.00</div>
+      </div>
+      <div class="edu-date">Agu 2022 — Jul 2026</div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2 class="title">Mari terhubung</h2>
+    <p>Terbuka untuk peluang backend developer maupun kolaborasi proyek. Hubungi lewat salah satu kanal di bawah.</p>
+    <div class="foot-links">
+      <a href="mailto:zia14148@gmail.com">Email</a>
+      <a href="tel:+628978671224">Telepon</a>
+      <a href="https://linkedin.com/in/zia-khusnul" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/ZiaKfa" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://minttt.itch.io/" target="_blank" rel="noopener">itch.io</a>
+    </div>
+    <div class="foot-end">© 2026 Zia Khusnul Fauzi Akhmad — dibangun dengan HTML, CSS &amp; JS murni.</div>
+  </div>
+</footer>
+
+</body>
+</html>
